@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ScrollTest">
         <activity
+            android:name=".SmoothScrollActivy"
+            android:exported="false" />
+        <activity
+            android:name=".normal.NormalScrollActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
