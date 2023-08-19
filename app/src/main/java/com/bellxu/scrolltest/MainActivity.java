@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.bellxu.scrolltest.databinding.ActivityMainBinding;
 import com.bellxu.scrolltest.normal.NormalScrollActivity;
+import com.bellxu.scrolltest.smooth.SmoothScrollActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         binding.smoothScroll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NormalScrollActivity.open(MainActivity.this);
+                SmoothScrollActivity.open(MainActivity.this);
             }
         });
     }

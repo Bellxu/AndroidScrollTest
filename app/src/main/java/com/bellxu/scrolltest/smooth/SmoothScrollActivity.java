@@ -5,13 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
+
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.bellxu.scrolltest.databinding.ActivitySmoothScrollBinding;
-import com.bellxu.scrolltest.normal.AnimatorFragment;
 import com.bellxu.scrolltest.normal.LayoutScrollFragment;
-import com.bellxu.scrolltest.normal.NormalScrollActivity;
-import com.bellxu.scrolltest.normal.ScrollByAndToFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -22,7 +22,7 @@ public class SmoothScrollActivity extends AppCompatActivity {
     ActivitySmoothScrollBinding smoothScrollBinding;
     private DemoCollectionAdapter demoCollectionAdapter;
 
-    private static final String[] tab_title = new String[]{"scrollTo/By", "Animator", "Layout"};
+    private static final String[] tab_title = new String[]{"scroller", "Animator", "Layout"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +53,13 @@ public class SmoothScrollActivity extends AppCompatActivity {
             Fragment fragment = null;
             switch (position) {
                 case 0:
-                    fragment = new ScrollByAndToFragment();
+                    fragment = new ScrollerSmoothScrollFragment();
                     break;
                 case 1:
-                    fragment = new AnimatorFragment();
+                    fragment = new AnimatorSmoothScrollFragment();
                     break;
                 case 2:
-                    fragment = new LayoutScrollFragment();
+                    fragment = new HandlerSmoothScrollFragment();
                     break;
                 default:
                     throw new IllegalStateException("Unexpected value: " + position);
@@ -77,5 +77,9 @@ public class SmoothScrollActivity extends AppCompatActivity {
 
     public void switchTab(int index) {
         smoothScrollBinding.pager.setCurrentItem(index);
+    }
+
+    public static void open(Activity activity) {
+        activity.startActivity(new Intent(activity,SmoothScrollActivity.class));
     }
 }

@@ -16,6 +16,9 @@
             android:name=".normal.NormalScrollActivity"
             android:exported="false" />
         <activity
+            android:name=".smooth.SmoothScrollActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
